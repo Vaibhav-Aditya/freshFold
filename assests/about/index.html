@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FreshFold Laundry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 10vh;
+            overflow-y: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navlink {
+            margin: 1vw;
+        }
+
+        .navlink>a {
+            text-decoration: none;
+            color: rgb(141, 141, 141);
+        }
+
+        .navlink>a:hover {
+            color: #28bbd9;
+        }
+
+        .logo {
+            background-image: url("../logo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 10vw;
+            height: 8vh;
+        }
+
+        .user {
+            width: 10vw;
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .userarea {
+            background-color: rgba(40, 187, 217, 0.2);
+            width: 70%;
+            height: 100%;
+            text-align: center;
+            line-height: 6vh;
+            color: #28bbd9;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+
+        header {
+            background: #fff;
+            color: #333;
+            padding: 15px 0;
+            border-bottom: 3px solid #00aaff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        header nav a:hover {
+            color: #00aaff;
+        }
+
+
+        .main-content {
+            padding: 40px 20px;
+            background: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #005f99;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #005f99;
+            margin-top: 0;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo"></div>
+        <div class="links">
+            <div class="home navlink"><a href="/home">Home</a></div>
+            <div class="services navlink"><a href="/home#services">Services</a></div>
+            <div class="about navlink"><a href="/about">About Us</a></div>
+            <div class="contact navlink"><a href="/contact">Contact Us</a></div>
+        </div>
+        <div class="user">
+            <div class="userarea">
+                Username
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <main class="main-content">
+            <h1>Our Story ✨</h1>
+            <div class="about-section">
+                <div class="about-text">
+                    <h2>Fresh Clothes, Fresher Planet</h2>
+                    <p>
+                        <strong>FreshFold Laundry</strong> was started with a simple idea: to provide a high-quality,
+                        reliable, and eco-friendly laundry service to the vibrant community of Varanasi. We believe that
+                        clean clothes shouldn't come at the cost of our planet or your precious time.
+                    </p>
+                    <p>
+                        We use state-of-the-art, water-efficient machines and biodegradable detergents to ensure your
+                        garments are treated with the utmost care while minimizing our environmental footprint. From
+                        everyday wear to delicate fabrics, our expert team handles your laundry as if it were our own.
+                    </p>
+                </div>
+                <div class="about-image">
+
+                    <img src="../laundry.png" alt="Clean and modern laundry facility">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FreshFold Laundry. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

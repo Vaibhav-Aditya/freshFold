@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshFold Laundry</title>
+  <style>
+    html {
+      height: 100vh;
+      width: 100vw;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      width: 100%;
+      height: 10vh;
+      overflow-y: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .navlink {
+      margin: 1vw;
+    }
+
+    .navlink>a {
+      text-decoration: none;
+      color: rgb(141, 141, 141);
+    }
+
+    .navlink>a:hover {
+      color: #28bbd9;
+    }
+
+    .logo {
+      background-image: url("../logo.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 10vw;
+      height: 8vh;
+    }
+
+    .user {
+      width: 10vw;
+      height: 6vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .userarea {
+      background-color: rgba(40, 187, 217, 0.2);
+      width: 70%;
+      height: 100%;
+      text-align: center;
+      line-height: 6vh;
+      color: #28bbd9;
+      border-radius: 5px;
+    }
+
+    #hero {
+      display: flex;
+      height: 75vh;
+    }
+
+    .left {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      font-size: xx-large;
+    }
+
+    .content {
+      width: 70%;
+      font-family: sans-serif;
+    }
+
+    .text1 {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 150%;
+      color: rgb(78, 78, 78);
+    }
+
+    .text2 {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 150%;
+      color: #28bbd9;
+    }
+
+    .subtext {
+      font-size: large;
+      text-align: justify;
+      color: rgb(201, 201, 201);
+    }
+
+    .button {
+      width: 12vw;
+      height: 8vh;
+      margin-top: 5vh;
+    }
+
+    .button>button {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: none;
+      background-color: #28bbd9;
+      color: white;
+      font-size: medium;
+      font-family: sans-serif;
+    }
+
+    .right {
+      height: 100%;
+      width: 50%;
+      background-image: url("../laundry.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    #overview {
+      width: 100vw;
+      height: 15vh;
+      display: flex;
+      background-color: #28bbd9;
+      justify-content: space-around;
+      align-items: center;
+      font-family: sans-serif;
+      color: #fff;
+    }
+
+    .acheivements {
+      font-size: xx-large;
+    }
+
+    .toptext {
+      font-size: x-large;
+    }
+
+    #services {
+      height: 100vh;
+      width: 100vw;
+      background-color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 1vw;
+    }
+
+    .sleft {
+      width: 50vw;
+      height: 80vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      border-radius: 20px;
+    }
+
+    .slt1 {
+      font-size: xx-large;
+      font-weight: 600;
+      color: rgb(65, 65, 65);
+      position: relative;
+      top: 20px;
+      left: 20px;
+    }
+
+    .slt2 {
+      color: rgb(67, 67, 67);
+      position: relative;
+      top: 25px;
+      left: 20px;
+      width: calc(100% - 40px);
+    }
+
+    .slt2:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 35px;
+      width: 100%;
+      height: 1px;
+      background-color: rgb(180, 180, 180);
+    }
+
+    .item-list {
+      position: relative;
+      top: 10vh;
+      left: 20px;
+      width: calc(100% - 40px);
+    }
+
+    .item-list>ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      width: 100%;
+    }
+
+    .item-list>ul>li {
+      line-height: 8vh;
+      width: 100%;
+    }
+
+    .item-price {
+      color: #9E28D9;
+      text-align: left;
+      display: inline;
+      margin-left: 2vw;
+    }
+
+    .item-add-delete {
+      width: 7vw;
+      height: 5vh;
+      float: right;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(40, 187, 217, 0.2);
+      vertical-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .item-list:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50vh + 5px);
+      width: 100%;
+      height: 1px;
+      background-color: rgb(180, 180, 180);
+    }
+
+    .stlb {
+      position: relative;
+      top: calc(10vh + 50px);
+      left: 20px;
+      width: 100%;
+      color: #b931fd;
+    }
+
+    .sright {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30vw;
+      height: 80vh;
+      row-gap: 1vh;
+      font-family: sans-serif;
+    }
+
+    .srightup {
+      width: 100%;
+      height: 40vh;
+      background-color: #fff;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .srt1 {
+      font-size: x-large;
+      font-weight: 700;
+      color: rgb(65, 65, 65);
+      position: relative;
+      top: 10px;
+      left: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .srt-table {
+      position: relative;
+      margin-top: 3vh;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: 90%;
+    }
+
+    .srt-table>table {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .srt-table>table td {
+      color: rgb(59, 59, 59);
+      line-height: 150%;
+    }
+
+    .srt2 {
+      position: relative;
+      bottom: 10px;
+      left: 20px;
+      font-family: sans-serif;
+      font-size: large;
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+    }
+
+    .srightdown {
+      width: 100%;
+      height: 40vh;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      background-color: white;
+    }
+
+    .book-now {
+      font-size: large;
+      position: relative;
+      top: 20px;
+      left: 20px;
+    }
+
+    .book-form {
+      position: relative;
+      top: 20px;
+      left: 20px;
+      margin-top: 20px;
+      width: calc(100% - 40px);
+    }
+
+    .book-form>form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #name,
+    #email,
+    #phone {
+      height: 4vh;
+      border-radius: 10px;
+      border: 1px solid lightblue;
+      padding: 5px;
+    }
+
+    .email-phone {
+      display: flex;
+      gap: 10px;
+    }
+
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    #confirmation {
+      height: 8px;
+    }
+
+    #book-btn {
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #9E28D9;
+      color: white;
+      height: 5vh;
+      width: 100%;
+      cursor: pointer;
+    }
+
+      .quality-section {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            height: 40vh;
+            font-family: sans-serif;
+        }
+        .quality-section > .container{
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .qualities {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 30px;
+            list-style: none;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .quality-card {
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .quality-card .icon-wrap {
+            margin-bottom: 15px;
+        }
+        
+        .quality-card svg {
+            width: 60px;
+            height: 60px;
+        }
+        .quality-card h3 {
+            color: #005f99;
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .quality-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        #news {
+          height: 20vh;
+            background-color: #005f99; /* Dark theme blue */
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        
+        .news-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .form-news {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .newsinput {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+
+        .newsbutton {
+            padding: 12px 25px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .newsbutton:hover {
+            background-color: #0088cc;
+        }
+
+        #footer {
+          height: 40vh;
+            background-color: #fff;
+            font-family: sans-serif;
+            color: #333;
+        }
+
+        #footer > .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        
+        #footer img {
+            max-width: 100px;
+        }
+
+        #footer p {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        #footer h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #005f99;
+        }
+
+        #footer ul {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        #footer ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #footer ul li a:hover {
+            color: #00aaff;
+        }
+        
+        #footer .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        #footer .social-icons a svg {
+            fill: #777;
+            transition: fill 0.3s;
+        }
+
+        #footer .social-icons a:hover svg {
+            fill: #00aaff;
+        }
+
+        #footer .footer-bottom {
+          border-top: 1px solid #e0e0e0;
+          text-align: center;
+          font-size: 13px;
+          color: #777;
+          width: 100%;
+          padding-top: 20px;
+        }
+  </style>
+</head>
+
+<body>
+    <div class="navbar">
+    <div class="logo"></div>
+    <div class="links">
+      <div class="home navlink"><a href="/home">Home</a></div>
+      <div class="services navlink"><a href="/home#services">Services</a></div>
+      <div class="about navlink"><a href="/about">About Us</a></div>
+      <div class="contact navlink"><a href="/contact">Contact Us</a></div>
+    </div>
+    <div class="user">
+      <div class="userarea">
+        Username
+      </div>
+    </div>
+  </div>
+  <section id="hero">
+    <div class="left">
+      <div class="content">
+        <div class="text1">
+          Revitalize Your<br>Clothes with Expert
+        </div>
+        <div class="text2">
+          Laundry Services!
+        </div>
+        <div class="subtext">
+          From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup
+          and rediscover the fresheness of your clothes today!
+        </div>
+        <div class="button">
+          <button title="Book a service today!" onclick="window.location.href='#services'">Book a service
+            today!</button>
+        </div>
+      </div>
+    </div>
+    <div class="right"></div>
+  </section>
+  <section id="overview">
+    <div class="acheivements">
+      Our Acheivements
+    </div>
+    <div class="achv1">
+      <div class="toptext">15+</div>Laundry Services
+    </div>
+    <div class="achv2">
+      <div class="toptext">240+</div>Happy Customers
+    </div>
+    <div class="achv3">
+      <div class="toptext">2+ Yrs</div>Experience
+    </div>
+  </section>
+  <section id="services">
+    <div class="sleft">
+      <div class="slt1">Our Services</div>
+      <div class="slt2">Click on Add to Cart Button to Add the Services to your Cart</div>
+      <div class="item-list">
+        <ul>
+          <li>Dry Cleaning<div class="item-price">&#8377;200.00</div><button class="item-add-delete" id="i1">Add
+              Item</button></li>
+          <li>Wash & Fold<div class="item-price">&#8377;100.00</div><button class="item-add-delete" id="i2">Add
+              Item</button></li>
+          <li>Ironing<div class="item-price">&#8377;30.00</div><button class="item-add-delete" id="i3">Add
+              Item</button></li>
+          <li>Stain Removal<div class="item-price">&#8377;500.00</div><button class="item-add-delete" id="i4">Add
+              Item</button></li>
+          <li>Leather & Suede Cleaning<div class="item-price">&#8377;999.00</div><button class="item-add-delete"
+              id="i5">Add Item</button></li>
+          <li>Wedding Dress Cleaning<div class="item-price">&#8377;2800.00</div><button class="item-add-delete"
+              id="i6">Add Item</button></li>
+        </ul>
+      </div>
+      <div class="stlb">Add the items in the Cart and Book Now!</div>
+    </div>
+    <div class="sright">
+      <div class="srightup">
+        <div class="srt1">Added Items</div>
+        <div class="srt-table">
+          <table id="itable">
+            <tr>
+              <td style="width: 15%;">S. No.</td>
+              <td style="width: 65%;">Service Name</td>
+              <td style="width: 20%;">Price</td>
+            </tr>
+          </table>
+        </div>
+        <div class="srt2">
+          <div class="randomContainer">Total Amount:</div>
+          <div id="totalDisplay"></div>
+        </div>
+      </div>
+      <div class="srightdown">
+        <div class="book-now">
+          Book Now
+        </div>
+        <div class="book-form">
+          <form action="#" method="post">
+            <label>Full Name:</label>
+            <input type="text" id="name">
+            <div class="email-phone">
+              <div class="field">
+                <label>Email:</label>
+                <input type="text" id="email">
+              </div>
+              <div class="field">
+                <label>Phone Number:</label>
+                <input type="text" id="phone">
+              </div>
+            </div>
+            <div id="confirmation"></div>
+            <button id="book-btn">Book Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="quality-section" aria-labelledby="quality-heading">
+    <div class="container">
+        <div class="qualities" role="list">
+            <article class="quality-card" role="listitem" aria-labelledby="q-premium">
+                <span class="icon-wrap" aria-hidden="true">
+                    <svg fill="#000000" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve">
+                        <g><g><path d="M459.582,171.769c-4.819,0-8.724,3.906-8.724,8.724v306.258c0,4.302-3.5,7.802-7.802,7.802H137.466
+                            c-4.818,0-8.724,3.906-8.724,8.724c0,4.818,3.906,8.724,8.724,8.724h305.589c13.924,0,25.25-11.328,25.25-25.25V180.493
+                            C468.306,175.675,464.4,171.769,459.582,171.769z"/></g></g><g><g><path d="M443.055,0H68.946c-13.923,0-25.25,11.328-25.25,25.25v461.5c0,13.923,11.326,25.25,25.25,25.25h39.44
+                            c4.818,0,8.724-3.906,8.724-8.724c0-4.818-3.906-8.724-8.724-8.724h-39.44c-4.302,0-7.802-3.5-7.802-7.802V107.425h389.712v45.151
+                            c0,4.818,3.905,8.724,8.724,8.724s8.724-3.906,8.724-8.724V25.25C468.306,11.328,456.978,0,443.055,0z M101.144,17.449h42.136
+                            v16.76h-42.136V17.449z M176.975,89.977H61.144V25.25c0-4.302,3.5-7.802,7.802-7.802h14.75v25.484
+                            c0,4.818,3.906,8.724,8.724,8.724h59.585c4.818,0,8.724-3.906,8.724-8.724V17.449h16.246V89.977z M450.857,89.977H335.026V37.421
+                            c0-4.818-3.905-8.724-8.724-8.724c-4.819,0-8.724,3.906-8.724,8.724v52.555H194.423V17.449h248.632c4.302,0,7.802,3.5,7.802,7.802
+                            V89.977z"/></g></g><g><g><path d="M255.999,137.929c-90.659,0-164.416,73.758-164.416,164.417s73.758,164.417,164.417,164.417
+                            c36.409,0,70.908-11.658,99.762-33.714c3.828-2.927,4.559-8.402,1.633-12.229c-2.926-3.828-8.401-4.56-12.23-1.633
+                            c-25.786,19.71-56.618,30.128-89.166,30.128c-81.038,0-146.968-65.93-146.968-146.968s65.93-146.968,146.968-146.968
+                            c81.039,0,146.968,65.93,146.968,146.968c0,35.019-12.521,68.936-35.257,95.503c-3.131,3.662-2.703,9.169,0.957,12.301
+                            c3.661,3.135,9.169,2.703,12.3-0.956c25.438-29.725,39.448-67.671,39.448-106.848
+                            C420.416,211.685,346.659,137.929,255.999,137.929z"/></g></g><g><g><path d="M324.768,302.345c0-23.43,8.181-46.281,23.038-64.343c2.648-3.219,2.648-7.862-0.001-11.082
+                            c-22.679-27.573-56.14-43.389-91.804-43.389c-65.515,0-118.816,53.301-118.816,118.816c0,20.552,5.333,40.81,15.425,58.583
+                            c2.379,4.19,7.705,5.658,11.894,3.279c4.19-2.379,5.658-7.704,3.279-11.894c-8.602-15.152-13.149-32.431-13.149-49.969
+                            c0-55.894,45.473-101.367,101.367-101.367c28.122,0,54.64,11.527,73.775,31.849c-14.528,20.143-22.456,44.551-22.456,69.518
+                            c0,24.967,7.927,49.375,22.456,69.518c-19.135,20.324-45.653,31.849-73.775,31.849c-27.722,0-53.604-10.979-72.88-30.913
+                            c-3.349-3.464-8.872-3.557-12.336-0.207c-3.464,3.349-3.557,8.872-0.207,12.336c22.592,23.365,52.93,36.233,85.424,36.233
+                            c35.665,0,69.126-15.814,91.804-43.389c2.649-3.22,2.649-7.864,0.001-11.083C332.95,348.625,324.768,325.775,324.768,302.345z"/></g></g><g><g><path d="M427.678,29.668h-69.791c-4.819,0-8.724,3.906-8.724,8.724c0,4.818,3.905,8.724,8.724,8.724h69.791
+                            c4.819,0,8.724-3.906,8.724-8.724C436.403,33.575,432.498,29.668,427.678,29.668z"/></g></g><g><g><path d="M427.678,60.308h-69.791c-4.819,0-8.724,3.906-8.724,8.724s3.905,8.724,8.724,8.724h69.791
+                            c4.819,0,8.724-3.906,8.724-8.724S432.498,60.308,427.678,60.308z"/></g></g>
+                    </svg>
+                </span>
+                <div>
+                    <h3 id="q-premium">Premium Services</h3>
+                    <p>Expert cleaning, gentle care, and premium finishing — for fabrics you love.</p>
+                </div>
+            </article>
+            <article class="quality-card" role="listitem" aria-labelledby="q-support">
+                <span class="icon-wrap" aria-hidden="true">
+                    <svg width="100px" height="100px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>support</title>
+                        <rect width="24" height="24" fill="none"/>
+                        <path d="M12,2a8,8,0,0,0-8,8v1.9A2.92,2.92,0,0,0,3,14a2.88,2.88,0,0,0,1.94,2.61C6.24,19.72,8.85,22,12,22h3V20H12c-2.26,0-4.31-1.7-5.34-4.39l-.21-.55L5.86,15A1,1,0,0,1,5,14a1,1,0,0,1,.5-.86l.5-.29V11a1,1,0,0,1,1-1H17a1,1,0,0,1,1,1v5H13.91a1.5,1.5,0,1,0-1.52,2H20a2,2,0,0,0,2-2V14a2,2,0,0,0-2-2V10A8,8,0,0,0,12,2Z"/>
+                    </svg>
+                </span>
+                <div>
+                    <h3 id="q-support">Quick Support</h3>
+                    <p>Fast, friendly customer support — chat, call or email; we're here to help.</p>
+                </div>
+            </article>
+            <article class="quality-card" role="listitem" aria-labelledby="q-delivery">
+                <span class="icon-wrap" aria-hidden="true">
+                    <svg height="100px" width="100px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                        <style type="text/css">
+                            .st0{fill:#000000;}
+                        </style>
+                        <g>
+                            <path class="st0" d="M311.069,130.515c-0.963-5.641-5.851-9.768-11.578-9.768H35.43c-7.61,0-13.772,6.169-13.772,13.765
+                                c0,7.61,6.162,13.772,13.772,13.772h64.263c7.61,0,13.772,6.17,13.772,13.773c0,7.603-6.162,13.772-13.772,13.772H13.772
+                                C6.169,175.829,0,181.998,0,189.601c0,7.603,6.169,13.764,13.772,13.764h117.114c6.72,0,12.172,5.46,12.172,12.18
+                                c0,6.72-5.452,12.172-12.172,12.172H68.665c-7.61,0-13.772,6.17-13.772,13.773c0,7.602,6.162,13.772,13.772,13.772h45.857
+                                c6.726,0,12.179,5.452,12.179,12.172c0,6.719-5.453,12.172-12.179,12.172H51.215c-7.61,0-13.772,6.169-13.772,13.772
+                                c0,7.603,6.162,13.772,13.772,13.772h87.014l5.488,31.042h31.52c-1.854,4.504-2.911,9.421-2.911,14.598
+                                c0,21.245,17.218,38.464,38.464,38.464c21.237,0,38.456-17.219,38.456-38.464c0-5.177-1.057-10.094-2.911-14.598h100.04
+                                L311.069,130.515z M227.342,352.789c0,9.146-7.407,16.553-16.553,16.553c-9.152,0-16.56-7.407-16.56-16.553
+                                c0-6.364,3.627-11.824,8.892-14.598h15.329C223.714,340.965,227.342,346.424,227.342,352.789z"/>
+                            <path class="st0" d="M511.598,314.072l-15.799-77.941l-57.689-88.759H333.074l32.534,190.819h38.42
+                                c-1.846,4.504-2.904,9.421-2.904,14.598c0,21.245,17.219,38.464,38.456,38.464c21.246,0,38.464-17.219,38.464-38.464
+                                c0-5.177-1.057-10.094-2.91-14.598h16.741c6.039,0,11.759-2.708,15.582-7.386C511.273,326.136,512.8,319.988,511.598,314.072z
+                                M392.529,182.882h26.314l34.162,52.547h-51.512L392.529,182.882z M456.14,352.789c0,9.146-7.407,16.553-16.56,16.553
+                                c-9.138,0-16.552-7.407-16.552-16.553c0-6.364,3.635-11.824,8.892-14.598h15.329C452.513,340.965,456.14,346.424,456.14,352.789z"/>
+                        </g>
+                    </svg>
+                </span>
+                <div>
+                    <h3 id="q-delivery">Hassle Free Delivery</h3>
+                    <p>Doorstep pickup &amp; delivery with reliable tracking and flexible slots.</p>
+                </div>
+            </article>
+            <article class="quality-card" role="listitem" aria-labelledby="q-affordable">
+                <span class="icon-wrap" aria-hidden="true">
+                    <svg fill="#000000" width="100px" height="100px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2,11.308a1,1,0,0,0,.293.707l9.692,9.692a1,1,0,0,0,1.414,0L21.707,13.4a1,1,0,0,0,0-1.414L12.015,2.293A1,1,0,0,0,11.308,2H3A1,1,0,0,0,2,3ZM4,4h6.894l8.692,8.692-6.894,6.894L4,10.894ZM9.923,7.154a1.958,1.958,0,1,1-2.769,0A1.957,1.957,0,0,1,9.923,7.154Z"/>
+                    </svg>
+                </span>
+                <div>
+                    <h3 id="q-affordable">Affordable Prices</h3>
+                    <p>Transparent pricing and value plans — premium care that fits your budget.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="news">
+    <div class="news-text">Subscribe to our<br>Newsletter</div>
+    <div class="form-news">
+        <input type="text" placeholder="Full Name" class="newsplace newsinput">
+        <input type="text" placeholder="Email" class="newsplace newsinput">
+        <button class="newsplace newsbutton">Subscribe</button>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <img src="logo.png" alt="Laundry Service Logo">
+            <p>Premium laundry solutions with quality, care, and convenience.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Terms of Service</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Connect with Us</h3>
+            <div class="social-icons">
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407.593 24 1.324 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.657-4.788 1.324 0 2.463.099 2.794.143v3.24l-1.918.001c-1.505 0-1.797.715-1.797 1.763v2.311h3.594l-.468 3.622h-3.126V24h6.127C23.407 24 24 23.407 24 22.676V1.324C24 .593 23.407 0 22.676 0z"/></svg></a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 4.556a9.826 9.826 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195A4.916 4.916 0 0 0 16.616 3c-2.737 0-4.954 2.215-4.954 4.945 0 .388.045.765.127 1.126-4.115-.206-7.77-2.176-10.215-5.17a4.928 4.928 0 0 0-.67 2.48c0 1.708.87 3.216 2.19 4.099a4.897 4.897 0 0 1-2.243-.616v.062c0 2.386 1.697 4.376 3.946 4.826a4.935 4.935 0 0 1-2.236.084 4.94 4.94 0 0 0 4.604 3.417A9.867 9.867 0 0 1 0 19.54a13.933 13.933 0 0 0 7.548 2.212c9.054 0 14.004-7.496 14.004-13.986 0-.213-.005-.425-.014-.636A10.025 10.025 0 0 0 24 4.556z"/></svg></a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.18.056 1.972.24 2.43.403a4.92 4.92 0 0 1 1.788 1.162 4.92 4.92 0 0 1 1.162 1.788c.163.458.347 1.25.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.18-.24 1.972-.403 2.43a4.92 4.92 0 0 1-1.162 1.788 4.92 4.92 0 0 1-1.788 1.162c-.458.163-1.25.347-2.43.403C8.416 2.175 8.796 2.163 12 2.163zm0 3.675a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm7.2-1.366a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.137 1.445-2.137 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.601 0 4.268 2.37 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 FreshFold Laundry. All Rights Reserved.
+    </div>
+</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let item_buttons = document.getElementsByClassName('item-add-delete');
+      let arr = ["Dry Cleaning", "Wash & Fold", "Ironing", "Stain Removal", "Leather & Suede Cleaning", "Wedding Dress Cleaning"];
+      let prices = [200.00, 100.00, 30.00, 500.00, 999.00, 2800.00];
+      let added = [null, null, null, null, null, null];
+      let table = document.getElementById("itable");
+      let totalDisplay = document.getElementById("totalDisplay");
+      const book_button = document.getElementById("book-btn");
+      const confimation = document.getElementById("confirmation");
+      book_button.addEventListener("click", (e) => {
+        e.preventDefault();
+        confimation.innerText = "Thank you For Booking the Service. We will get back to you soon!";
+        confimation.style.color = "green";
+        confimation.style.fontSize = "small";
+      });
+      for (let i = 0; i < item_buttons.length; i++) {
+        item_buttons[i].addEventListener('click', (e) => {
+          let t = e.target.innerText;
+
+          if (t === "Add Item") {
+            e.target.innerText = "Remove Item";
+            e.target.style.backgroundColor = "rgba(217, 70, 40, 0.2)";
+            let new_row = table.insertRow();
+            let c1 = new_row.insertCell();
+            let c2 = new_row.insertCell();
+            let c3 = new_row.insertCell();
+
+            let index = parseInt(e.target.id.slice(1)) - 1;
+            c2.innerText = arr[index];
+            c3.innerText = prices[index].toFixed(2);
+            added[index] = new_row;
+
+            updateSerialNumbers();
+            calculateTotal();
+
+          } else {
+            e.target.innerText = "Add Item";
+            e.target.style.backgroundColor = "rgba(40, 187, 217, 0.2)";
+
+            let index = parseInt(e.target.id.slice(1)) - 1;
+            let row = added[index];
+            if (row) {
+              table.deleteRow(row.rowIndex);
+              added[index] = null;
+
+              updateSerialNumbers();
+              calculateTotal();
+            }
+          }
+        });
+      }
+
+      function updateSerialNumbers() {
+        let rows = table.rows;
+        for (let i = 1; i < rows.length; i++) {
+          rows[i].cells[0].innerText = i;
+        }
+      }
+
+      function calculateTotal() {
+        let total = 0;
+        for (let i = 0; i < table.rows.length; i++) {
+          let price = parseFloat(table.rows[i].cells[2].innerText);
+          if (!isNaN(price)) {
+            total += price;
+          }
+        }
+        totalDisplay.innerText = `₹${total.toFixed(2)}`;
+      }
+    });
+
+  </script>
+</body>
+
+</html>
