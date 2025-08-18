@@ -1,6 +1,6 @@
 # Simple Node.js Static Server
 
-This project is a basic web server built with **Node.js**. It uses the native `http` and `fs` modules to serve static HTML pages and images based on the requested URL.
+This project is a basic web server built with **Node.js**. It uses the native `http` and `fs` modules to serve static HTML pages and images based on the requested URL. Demo: https://freshfold-ndmr.onrender.com/
 
 -----
 
